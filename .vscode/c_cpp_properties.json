@@ -8,7 +8,8 @@
         "/Users/hadeerawan/Downloads/High Stakes 2024-2025/include",
         "c:\\Users\\Edela\\Downloads\\High Stakes 2024-2025\\High Stakes 2024-2025\\include",
         "/Users/hadeerawan/Downloads/High Stakes 2024-2025/High Stakes 2024-2025/include",
-        "/Users/hamzaimran/Downloads/High-Stakes-2024-2025/include"
+        "/Users/hamzaimran/Downloads/High-Stakes-2024-2025/include",
+        "/Users/hamzaimran/Downloads/1575W High-Stakes-2024-2025/include"
       ],
       "defines": [
         "_DEBUG",
@@ -24,7 +25,7 @@
       ],
       "browse": {
         "path": [
-          "/Users/hamzaimran/Downloads/High-Stakes-2024-2025"
+          "/Users/hamzaimran/Downloads/1575W High-Stakes-2024-2025"
         ],
         "limitSymbolsToIncludedHeaders": true,
         "databaseFilename": ""
