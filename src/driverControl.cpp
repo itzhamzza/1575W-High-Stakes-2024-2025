@@ -59,20 +59,20 @@ void colorSort(){
         // //THIS THORWS OUT RED
        
             //  if (color_sens.get_hue() < 13 && color_sens.get_hue() > 8){
-            //     pros::delay(70);
+            //    // pros::delay(25);
             //         sortering = true;
             //         intake.move_velocity(1200);
-            //         pros::delay(1000);
+            //         pros::delay(700);
             //         sortering = false;
             //  }
         
         //THIS THROWS OUT BLUE
        
                if (color_sens.get_hue() < 230 && color_sens.get_hue() > 210){
-                pros::delay(70);
+                //pros::delay(25);
                     sortering = true;
                     intake.move_velocity(1200);
-                    pros::delay(500);
+                    pros::delay(700);
                     sortering = false;
                }
         
@@ -171,10 +171,12 @@ void goalClamper(){
     if(master.get_digital(DIGITAL_LEFT) && toggle ==0){
       goalClamp.set_value(true);
       toggle++;
+      pros::delay(50);
     }
     else if(master.get_digital(DIGITAL_LEFT) && toggle ==1){
         goalClamp.set_value(false);
       toggle--;
+      pros::delay(50);
     }
 
 }

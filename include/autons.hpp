@@ -3,6 +3,8 @@
 #include "EZ-Template/drive/drive.hpp"
 
 extern Drive chassis;
+void goalRushRedCornerClear();
+void goalRushBlueCornerClear();
 void goalRushRed();
 void goalRushBlueWallStake();
 void goalRushBlue();

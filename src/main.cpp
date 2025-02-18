@@ -42,23 +42,25 @@ void initialize() {
   // chassis.opcontrol_curve_buttons_right_set(pros::E_CONTROLLER_DIGITAL_Y, pros::E_CONTROLLER_DIGITAL_A);
 
   // Autonomous Selector using LLEMU
-  ez::as::auton_selector.autons_add({
+  ez::as::auton_selector.autons_add({ 
+    Auton("goalRushRedCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushRedCornerClear),
+    Auton("goalRushBlueCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushBlueCornerClear),
     Auton("Skills", skills),
-    Auton("goalRushBlueWallStake", goalRushBlueWallStake),
-    Auton("goalRushRed", goalRushRed),
+    Auton("goalRushBlueWallStake, rushes for goal in the middle on blue side and gets wall stake, elims", goalRushBlueWallStake),
+    Auton("goalRushRed, rushes for goal in the middle on red side", goalRushRed),
     
-    Auton("goalRushBlue", goalRushBlue),
-    Auton("blueAlliance1Ring", blueAlliance1Ring),
-    Auton("redAlliance1Ring", redAlliance1Ring),
+    Auton("goalRushBlue, rushes for goal in the middle on blue side", goalRushBlue),
+    Auton("blueAlliance1Ring, blue alliance stake and one ring on goal for positive corner", blueAlliance1Ring),
+    Auton("redAlliance1Ring, red alliance stake and one ring on goal for positive corner", redAlliance1Ring),
      
-      Auton("redPos2",redPos2),
-      Auton("RedSoloAWPSig", RedSoloAWPSig),
-      Auton("BlueSoloAWPSig", BlueSoloAWPSig),
-      Auton("blueAlliance3Ring", blueAlliance3Ring),
-      Auton("redAlliance3Ring", redAlliance3Ring),
-      Auton("blueFiveRing", blueFiveRing),
-      Auton("redFiveRing", redFiveRing),
-      Auton("bluePos2", bluePos2),
+      Auton("redPos2, three rings on goal in positive corner for red",redPos2),
+      Auton("RedSoloAWPSig, Solo AWP for sigs and states, red side", RedSoloAWPSig),
+      Auton("BlueSoloAWPSig, Solo AWP for sigs and states, blue side", BlueSoloAWPSig),
+      Auton("blueAlliance3Ring, blue alliance stake alongside 3 rings on goal on ring side", blueAlliance3Ring),
+      Auton("redAlliance3Ring, red alliance stake alongside 3 rings on goal on ring side", redAlliance3Ring),
+      Auton("blueFiveRing, 5 rings on red side with rings in middle", blueFiveRing),
+      Auton("redFiveRing, 5 rings on red side with rings in middle", redFiveRing),
+      Auton("bluePos2, three rings on goal in positive corner for blue", bluePos2),
       //Auton("Example Drive\n\nDrive forward and come back.", drive_example),
       //Auton("Example Turn\n\nTurn 3 times.", turn_example),
       //Auton("Drive and Turn\n\nDrive forward, turn, come back. ", drive_and_turn),
