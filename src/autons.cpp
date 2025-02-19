@@ -930,14 +930,14 @@ void skills(){
   
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(-40_deg, TURN_SPEED);
-  chassis.pid_wait();
+  chassis.pid_wait_quick(); //chaining
  
   chassis.pid_drive_set(36_in, DRIVE_SPEED); //39
-  chassis.pid_wait();
+  chassis.pid_wait_quick();
   
  chassis.drive_imu_reset(); 
   chassis.pid_turn_set(40_deg, TURN_SPEED);
-  chassis.pid_wait();
+  chassis.pid_wait_quick(); //stopped
   
   ladyBrown.move_absolute(-465, 200);
   chassis.pid_drive_set(15_in, DRIVE_SPEED); //24
@@ -948,7 +948,7 @@ void skills(){
   chassis.pid_turn_set(-8_deg, TURN_SPEED);
   chassis.pid_wait();
   intake.move_velocity(0);
-  chassis.pid_drive_set(-18_in, DRIVE_SPEED); //-27 //-32
+  chassis.pid_drive_set(-23.5_in, DRIVE_SPEED); //-27 //-32
   chassis.pid_wait();
   ladyBrown.move_absolute(-1500, 200);
   chassis.drive_imu_reset(); 
@@ -988,20 +988,20 @@ void skills(){
   chassis.pid_drive_set(-5_in, DRIVE_SPEED);
   chassis.pid_wait_quick();
   chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(-190_deg, TURN_SPEED);
+  chassis.pid_turn_set(-180_deg, TURN_SPEED);
   chassis.pid_wait_quick_chain();
   
-  chassis.pid_drive_set(-15_in, DRIVE_SPEED);
+  chassis.pid_drive_set(-19_in, DRIVE_SPEED);
   intake.move_velocity(1200);
-  chassis.pid_wait_quick();
+  chassis.pid_wait_quick_chain();
   clamper.set_value(false);
   //goal in corner
   
  
-  chassis.pid_drive_set(2_in, DRIVE_SPEED);
+  chassis.pid_drive_set(4_in, DRIVE_SPEED);
   chassis.pid_wait();
   chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(-119_deg, TURN_SPEED);
+  chassis.pid_turn_set(-132_deg, TURN_SPEED); 
   chassis.pid_wait();
   intake.move_velocity(0);
   
@@ -1041,7 +1041,7 @@ void skills(){
   chassis.pid_turn_set(4_deg, TURN_SPEED);
   chassis.pid_wait();
   intake.move_velocity(0);
-  chassis.pid_drive_set(-18_in, DRIVE_SPEED); //-27 //-28
+  chassis.pid_drive_set(-18_in, DRIVE_SPEED); //-27 //-28 //18
   chassis.pid_wait();
   ladyBrown.move_absolute(-1500, 200);
   chassis.drive_imu_reset(); 
@@ -1092,7 +1092,7 @@ void skills(){
  chassis.pid_drive_set(10_in, DRIVE_SPEED);
   chassis.pid_wait_quick();
   chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(-18_deg, TURN_SPEED);
+  chassis.pid_turn_set(-17_deg, TURN_SPEED);
   chassis.pid_wait_quick_chain();
   intake.move_velocity(0);
   chassis.pid_drive_set(89_in, DRIVE_SPEED); //95

@@ -30,27 +30,40 @@ void Redirecter(){
     
 // }
 bool sortering = false;
+int toggle2 = 0;
 //Intake
 void intaking(){
     
         
 
-        if(master.get_digital(DIGITAL_R2) && sortering == false){
-            //intakes in
-            intake.move_velocity(-1200);      
+        if(master.get_digital_new_press(DIGITAL_R2) && sortering == false){
+            if (toggle2 == 0){
+                //intakes in
+                intake.move_velocity(-1200);      
+                toggle2++;
+                //pros::delay(50);
+            }
+            else if (toggle2 == 1){
+                intake.move_velocity(0);      
+                toggle2--;
+                //pros::delay(50);
+            }
+            
 
         }
+       
         else if(master.get_digital(DIGITAL_R1)){
+
             //intakes out
             intake.move_velocity(600);
             
         }
-        else if (sortering == false){
-            intake.move_velocity(0);
-            //intake.set_brake_mode(MOTOR_BRAKE_COAST);
+        // else if (sortering == false){
+        //     intake.move_velocity(0);
+        //     //intake.set_brake_mode(MOTOR_BRAKE_COAST);
             
 
-        }
+        // }
 }
 
 void colorSort(){

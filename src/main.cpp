@@ -43,9 +43,10 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({ 
+    Auton("Skills", skills),
     Auton("goalRushRedCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushRedCornerClear),
     Auton("goalRushBlueCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushBlueCornerClear),
-    Auton("Skills", skills),
+    
     Auton("goalRushBlueWallStake, rushes for goal in the middle on blue side and gets wall stake, elims", goalRushBlueWallStake),
     Auton("goalRushRed, rushes for goal in the middle on red side", goalRushRed),
     
