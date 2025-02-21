@@ -8,5 +8,6 @@ void clamping();
 void doinker();
 void intakeExtender();
 void Redirecter();
-inline pros::Task tasker(colorSort);
-//inline pros::Task tasker2(intaking);
+void autoClamper();
+inline pros::Task colorSortTask(colorSort);
+inline pros::Task autoClampTask(autoClamper);

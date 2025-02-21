@@ -958,7 +958,7 @@ void skills(){
   chassis.pid_drive_set(18_in, 70); //21
   chassis.pid_wait();
   //2nd ring in goal
-  ladyBrown.move_absolute(-2000, 200);
+  ladyBrown.move_absolute(-2350, 200);
   pros::delay(50);
   //ring on wallstake
  chassis.pid_drive_set(-10_in, 65);
@@ -971,42 +971,48 @@ void skills(){
   
   chassis.pid_turn_set(-90_deg, TURN_SPEED);
   chassis.pid_wait();
-  intake.move_velocity(-1200);
-  chassis.pid_drive_set(60_in, 60); //65
+  intake.move(-127);
+  chassis.pid_drive_set(65_in, 60); //65
   chassis.pid_wait();
   pros::delay(250);
   //3 rings in goal
   chassis.pid_drive_set(-23_in, DRIVE_SPEED);
-  chassis.pid_wait();
+  chassis.pid_wait_quick_chain();
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(45_deg, TURN_SPEED);
-  chassis.pid_wait();
+  chassis.pid_wait_quick_chain();
   chassis.pid_drive_set(15_in, DRIVE_SPEED);
-  chassis.pid_wait();
+  chassis.pid_wait_quick_chain();
   pros::delay(200);
   //6th ring on goal
   chassis.pid_drive_set(-5_in, DRIVE_SPEED);
   chassis.pid_wait_quick();
   chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(-180_deg, TURN_SPEED);
+  chassis.pid_turn_set(-200_deg, TURN_SPEED);
   chassis.pid_wait_quick_chain();
   
-  chassis.pid_drive_set(-19_in, DRIVE_SPEED);
+  chassis.pid_drive_set(-18.5_in, DRIVE_SPEED);
   intake.move_velocity(1200);
   chassis.pid_wait_quick_chain();
   clamper.set_value(false);
   //goal in corner
   
  
-  chassis.pid_drive_set(4_in, DRIVE_SPEED);
-  chassis.pid_wait();
+  chassis.pid_drive_set(6_in, DRIVE_SPEED);
+  chassis.pid_wait(); 
   chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(-132_deg, TURN_SPEED); 
+  chassis.pid_turn_set(-111_deg, TURN_SPEED); 
   chassis.pid_wait();
   intake.move_velocity(0);
   
   chassis.pid_drive_set(-65_in, DRIVE_SPEED);
   chassis.pid_wait();
+  
+  chassis.pid_targets_reset();                // Resets PID targets to 0
+  chassis.drive_imu_reset();                  // Reset gyro position to 0
+  chassis.drive_sensor_reset();               // Reset drive sensors to 0
+  
+  pros::delay(200);
   //repeat code
   
   chassis.pid_drive_set(-20_in, 60); //-26
@@ -1029,29 +1035,29 @@ void skills(){
   chassis.pid_wait();
   
  chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(-40_deg, TURN_SPEED);
+  chassis.pid_turn_set(-35_deg, TURN_SPEED);
   chassis.pid_wait();
   
   ladyBrown.move_absolute(-465, 200);
-  chassis.pid_drive_set(15_in, DRIVE_SPEED); //24
+  chassis.pid_drive_set(18_in, DRIVE_SPEED); //24
   chassis.pid_wait();
   pros::delay(500);
   //ring on ladybrown
   chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(4_deg, TURN_SPEED);
+  chassis.pid_turn_set(-3_deg, TURN_SPEED);
   chassis.pid_wait();
   intake.move_velocity(0);
-  chassis.pid_drive_set(-18_in, DRIVE_SPEED); //-27 //-28 //18
+  chassis.pid_drive_set(-21_in, DRIVE_SPEED); //-27 //-28 //18
   chassis.pid_wait();
   ladyBrown.move_absolute(-1500, 200);
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(86_deg, TURN_SPEED);
   chassis.pid_wait();
   intake.move_velocity(-1200);
-  chassis.pid_drive_set(18_in, 70); //21
+  chassis.pid_drive_set(19_in, 80); //21
   chassis.pid_wait();
   //2nd ring in 2nd goal
- ladyBrown.move_absolute(-2000, 200);
+ ladyBrown.move_absolute(-2350, 200);
  pros::delay(50);
   //ring on wall stake
  chassis.pid_drive_set(-10_in, 65);
@@ -1061,7 +1067,7 @@ void skills(){
   chassis.pid_drive_set(2_in, 65);
   chassis.pid_wait();
   intake.move_velocity(1200);
-  chassis.pid_turn_set(90_deg, TURN_SPEED);
+  chassis.pid_turn_set(94_deg, TURN_SPEED);
   chassis.pid_wait();
   intake.move_velocity(-1200);
   chassis.pid_drive_set(60_in, 60); //65
@@ -1069,12 +1075,12 @@ void skills(){
   pros::delay(250);
   //3 rings in 2nd goal
   chassis.pid_drive_set(-23_in, DRIVE_SPEED);
-  chassis.pid_wait();
+  chassis.pid_wait_quick_chain();
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(-45_deg, TURN_SPEED);
-  chassis.pid_wait();
+  chassis.pid_wait_quick_chain();
   chassis.pid_drive_set(15_in, DRIVE_SPEED);
-  chassis.pid_wait();
+  chassis.pid_wait_quick_chain();
   pros::delay(200);
   //6th ring on 2nd goal
   chassis.pid_drive_set(-5_in, DRIVE_SPEED);
@@ -1092,7 +1098,7 @@ void skills(){
  chassis.pid_drive_set(10_in, DRIVE_SPEED);
   chassis.pid_wait_quick();
   chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(-17_deg, TURN_SPEED);
+  chassis.pid_turn_set(-18.5_deg, TURN_SPEED);
   chassis.pid_wait_quick_chain();
   intake.move_velocity(0);
   chassis.pid_drive_set(89_in, DRIVE_SPEED); //95
@@ -1100,7 +1106,7 @@ void skills(){
   //through the middle
   intake.move_velocity(-1200);
   chassis.pid_drive_set(26.5_in, 80); //40
-  chassis.pid_wait_until(24.5);
+  chassis.pid_wait_until(23.5); //24.5
   intake.move_velocity(0);
   chassis.pid_wait_quick();
   //2 rings in intake

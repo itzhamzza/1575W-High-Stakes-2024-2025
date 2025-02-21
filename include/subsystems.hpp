@@ -26,3 +26,6 @@ inline pros::adi::DigitalOut goalClamp('C', 0);
 inline pros::adi::DigitalOut armPiston('A', 0);
 
 inline pros::adi::DigitalOut doink('D', 0);
+
+inline pros::adi::DigitalIn limitSwitchLeft('G');
+inline pros::adi::DigitalIn limitSwitchRight('F');

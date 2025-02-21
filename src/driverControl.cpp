@@ -30,40 +30,55 @@ void Redirecter(){
     
 // }
 bool sortering = false;
+bool togglable = true;
 int toggle2 = 0;
 //Intake
 void intaking(){
     
-        
+        if (togglable == true){
 
-        if(master.get_digital_new_press(DIGITAL_R2) && sortering == false){
-            if (toggle2 == 0){
+            if(master.get_digital_new_press(DIGITAL_R2) && sortering == false){
+                if (toggle2 == 0){
+                    //intakes in
+                    intake.move_velocity(-1200);      
+                    toggle2++;
+                    //pros::delay(50);
+                }
+                else if (toggle2 == 1){
+                    intake.move_velocity(0);      
+                    toggle2--;
+                    //pros::delay(50);
+                }
+            }
+            else if(master.get_digital(DIGITAL_R1)){
+
+                //intakes out
+                intake.move_velocity(600);
+                
+            }
+        }
+        if (togglable == false){
+             if(master.get_digital(DIGITAL_R2)){
+
                 //intakes in
-                intake.move_velocity(-1200);      
-                toggle2++;
-                //pros::delay(50);
+                intake.move_velocity(-1200);
+                
             }
-            else if (toggle2 == 1){
-                intake.move_velocity(0);      
-                toggle2--;
-                //pros::delay(50);
+            else if(master.get_digital(DIGITAL_R1)){
+
+                //intakes out
+                intake.move_velocity(600);
+                
             }
-            
-
+            else if (sortering == false){
+                intake.move_velocity(0);
+                //intake.set_brake_mode(MOTOR_BRAKE_COAST);
+                
+    
+            }
         }
-       
-        else if(master.get_digital(DIGITAL_R1)){
-
-            //intakes out
-            intake.move_velocity(600);
-            
-        }
-        // else if (sortering == false){
-        //     intake.move_velocity(0);
-        //     //intake.set_brake_mode(MOTOR_BRAKE_COAST);
-            
-
-        // }
+        
+        
 }
 
 void colorSort(){
@@ -71,23 +86,23 @@ void colorSort(){
     
         // //THIS THORWS OUT RED
        
-            //  if (color_sens.get_hue() < 13 && color_sens.get_hue() > 8){
-            //    // pros::delay(25);
-            //         sortering = true;
-            //         intake.move_velocity(1200);
-            //         pros::delay(700);
-            //         sortering = false;
-            //  }
-        
-        //THIS THROWS OUT BLUE
-       
-               if (color_sens.get_hue() < 230 && color_sens.get_hue() > 210){
-                //pros::delay(25);
+             if (color_sens.get_hue() < 13 && color_sens.get_hue() > 8){
+               // pros::delay(25);
                     sortering = true;
                     intake.move_velocity(1200);
                     pros::delay(700);
                     sortering = false;
-               }
+             }
+        
+        //THIS THROWS OUT BLUE
+       
+            //    if (color_sens.get_hue() < 230 && color_sens.get_hue() > 210){
+            //     //pros::delay(25);
+            //         sortering = true;
+            //         intake.move_velocity(1200);
+            //         pros::delay(700);
+            //         sortering = false;
+            // }
         
                pros::delay(10);
         
@@ -95,6 +110,16 @@ void colorSort(){
     }
 }
 
+void autoClamper(){
+    while (true){
+        if (limitSwitchLeft.get_new_press() || limitSwitchRight.get_new_press()){
+            //pros::delay(500);
+            clamper.set_value(true);
+            
+        }
+        pros::delay(50);
+    }
+}
 
 int stage = 0;
 
@@ -109,7 +134,7 @@ void ladybrownMovement(){
                 intake.set_brake_mode(MOTOR_BRAKE_HOLD);
             
                 ladyBrown.move_absolute(-465, 200);
-                
+                togglable = false;
                 stage++;
             }
             // else if (stage == 1){
@@ -137,7 +162,9 @@ void ladybrownMovement(){
             ladyBrown.move_absolute(-10, 200);
             ladyBrown.set_brake_mode(MOTOR_BRAKE_COAST);
             intake.set_brake_mode(MOTOR_BRAKE_COAST);
+            togglable = true;
             stage = 0;
+            
             //rotation_sens.reset();
             //while (rotation_sens.get_position() <= 35700){
               //  ladyBrown.move_velocity(600);
@@ -174,7 +201,9 @@ void clamping(){
     }
     else if(master.get_digital(DIGITAL_RIGHT)){
         //clamps off
+        
         clamper.set_value(false);
+        
         
     }
 
