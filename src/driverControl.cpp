@@ -120,6 +120,16 @@ void autoClamper(){
         pros::delay(50);
     }
 }
+void autoFlipping(){
+    while (true){
+        if (autoFlipper.get_new_press()){
+            //pros::delay(500);
+            ez::as::page_up();
+            
+        }
+        pros::delay(50);
+    }
+}
 
 int stage = 0;
 

@@ -9,5 +9,7 @@ void doinker();
 void intakeExtender();
 void Redirecter();
 void autoClamper();
+void autoFlipping();
 inline pros::Task colorSortTask(colorSort);
 inline pros::Task autoClampTask(autoClamper);
+inline pros::Task autonFlip(autoFlipping);

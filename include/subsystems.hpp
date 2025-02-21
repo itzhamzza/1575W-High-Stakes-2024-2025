@@ -29,3 +29,5 @@ inline pros::adi::DigitalOut doink('D', 0);
 
 inline pros::adi::DigitalIn limitSwitchLeft('G');
 inline pros::adi::DigitalIn limitSwitchRight('F');
+
+inline pros::adi::DigitalIn autoFlipper('H');
