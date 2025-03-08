@@ -62,6 +62,7 @@
 // using namespace ez;
 using namespace okapi::literals;
 
+//extern bool skillsVar;
 /**
  * Prototypes for the competition control tasks are redefined here to ensure
  * that they can be called from user code (i.e. calling autonomous from a

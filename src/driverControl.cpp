@@ -2,18 +2,18 @@
 #include "pros/misc.h"
 #include "pros/motors.h"
 #include "autons.hpp"
-bool dir = false;
 
+bool togglable = false;
 //Redirect
-void Redirecter(){
-    if(master.get_digital(DIGITAL_UP)){
-        dir = true;
+void intakeButton(){
+    if(master.get_digital(DIGITAL_B) && togglable == false){
+        togglable = true;
         pros::delay(50);
         master.rumble(".");
         
     }
-    else if(master.get_digital(DIGITAL_DOWN)){
-        dir = false;
+    else if(master.get_digital(DIGITAL_B) && togglable == true){
+        togglable = false;
         pros::delay(50);
         master.rumble(".");
     }
@@ -30,7 +30,7 @@ void Redirecter(){
     
 // }
 bool sortering = false;
-bool togglable = true;
+
 int toggle2 = 0;
 //Intake
 void intaking(){
@@ -57,8 +57,10 @@ void intaking(){
                 
             }
         }
+    
+    
         if (togglable == false){
-             if(master.get_digital(DIGITAL_R2)){
+             if(master.get_digital(DIGITAL_R2) && sortering == false){
 
                 //intakes in
                 intake.move_velocity(-1200);
@@ -77,6 +79,7 @@ void intaking(){
     
             }
         }
+    
         
         
 }
@@ -86,23 +89,23 @@ void colorSort(){
     
         // //THIS THORWS OUT RED
        
-             if (color_sens.get_hue() < 13 && color_sens.get_hue() > 8){
-               // pros::delay(25);
-                    sortering = true;
-                    intake.move_velocity(1200);
-                    pros::delay(700);
-                    sortering = false;
-             }
-        
-        //THIS THROWS OUT BLUE
-       
-            //    if (color_sens.get_hue() < 230 && color_sens.get_hue() > 210){
-            //     //pros::delay(25);
+            //  if (color_sens.get_hue() < 13 && color_sens.get_hue() > 8){
+            //    // pros::delay(25);
             //         sortering = true;
             //         intake.move_velocity(1200);
             //         pros::delay(700);
             //         sortering = false;
-            // }
+            //  }
+        
+        //THIS THROWS OUT BLUE
+       
+               if (color_sens.get_hue() < 230 && color_sens.get_hue() > 210){
+                //pros::delay(25);
+                    sortering = true;
+                    intake.move_velocity(1200);
+                    pros::delay(700);
+                    sortering = false;
+            }
         
                pros::delay(10);
         
@@ -115,11 +118,22 @@ void autoClamper(){
         if (limitSwitchLeft.get_new_press() || limitSwitchRight.get_new_press()){
             //pros::delay(500);
             clamper.set_value(true);
-            
+            pros::delay(1500);
         }
         pros::delay(50);
     }
 }
+// void autoClamperAuton(){
+//     while (true){
+//         if (limitSwitchLeft.get_new_press() && limitSwitchRight.get_new_press()){
+//             //pros::delay(500);
+//             clamper.set_value(true);
+//             pros::delay(700);
+            
+//         }
+//         pros::delay(50);
+//     }
+// }
 void autoFlipping(){
     while (true){
         if (autoFlipper.get_new_press()){
@@ -143,7 +157,7 @@ void ladybrownMovement(){
                 ladyBrown.set_brake_mode(MOTOR_BRAKE_HOLD);
                 intake.set_brake_mode(MOTOR_BRAKE_HOLD);
             
-                ladyBrown.move_absolute(-465, 200);
+                ladyBrown.move_absolute(-350, 200);
                 togglable = false;
                 stage++;
             }
@@ -153,7 +167,7 @@ void ladybrownMovement(){
             //     stage++;
             // }
             else if(stage == 1){
-                ladyBrown.move_absolute(-2000, 200);
+                ladyBrown.move_absolute(-1800, 200);
 
             }
 

@@ -31,3 +31,5 @@ inline pros::adi::DigitalIn limitSwitchLeft('G');
 inline pros::adi::DigitalIn limitSwitchRight('F');
 
 inline pros::adi::DigitalIn autoFlipper('H');
+
+// inline pros::MotorGroup drive({-16, -15, -19, 11, 6, 4});

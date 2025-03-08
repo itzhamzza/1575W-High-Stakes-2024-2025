@@ -10,7 +10,7 @@
 // Chassis constructor
 ez::Drive chassis(
     // Drive motors, the first motor is used for sensing
-    {-13, -15, -16},  // Left Chassis Ports 
+    {-15, -16, -19},  // Left Chassis Ports 
     {4, 6, 11},  // Right Chassis Ports 
 
     20,     // IMU Port
@@ -41,8 +41,10 @@ void initialize() {
   // chassis.opcontrol_curve_buttons_left_set(pros::E_CONTROLLER_DIGITAL_LEFT, pros::E_CONTROLLER_DIGITAL_RIGHT);  // If using tank, only the left side is used.
   // chassis.opcontrol_curve_buttons_right_set(pros::E_CONTROLLER_DIGITAL_Y, pros::E_CONTROLLER_DIGITAL_A);
 
+  
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({ 
+    Auton("RedSoloAWPSig, Solo AWP for sigs and states, red side", RedSoloAWPSig),
     Auton("Skills", skills),
     Auton("goalRushRedCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushRedCornerClear),
     Auton("goalRushBlueCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushBlueCornerClear),
@@ -55,7 +57,7 @@ void initialize() {
     Auton("redAlliance1Ring, red alliance stake and one ring on goal for positive corner", redAlliance1Ring),
      
       Auton("redPos2, three rings on goal in positive corner for red",redPos2),
-      Auton("RedSoloAWPSig, Solo AWP for sigs and states, red side", RedSoloAWPSig),
+      
       Auton("BlueSoloAWPSig, Solo AWP for sigs and states, blue side", BlueSoloAWPSig),
       Auton("blueAlliance3Ring, blue alliance stake alongside 3 rings on goal on ring side", blueAlliance3Ring),
       Auton("redAlliance3Ring, red alliance stake alongside 3 rings on goal on ring side", redAlliance3Ring),
@@ -72,6 +74,10 @@ void initialize() {
       //Auton("Interference\n\nAfter driving forward, robot performs differently if interfered or not.", interfered_example),
       
   });
+  
+
+
+
 
   // Initialize chassis and auton selector
   chassis.initialize();
@@ -146,6 +152,7 @@ void opcontrol() {
   color_sens.set_led_pwm(100);
   
   
+  
 
   while (true) {
     // PID Tuner
@@ -182,7 +189,7 @@ void opcontrol() {
     //colorSort();
     intakeExtender();
     //allianceStake();
-    //Redirecter();
+    intakeButton();
     intaking();
     ladybrownMovement();
     clamping();

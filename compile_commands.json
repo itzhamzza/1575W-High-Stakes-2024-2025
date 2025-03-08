@@ -208,7 +208,7 @@
             "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include",
             "-iquote./include",
             "-iquote./include/okapi/squiggles",
-            "-iquote./include/./",
+            "-iquote./include/EZ-Template/drive/",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -227,11 +227,11 @@
             "-funwind-tables",
             "--std=gnu++20",
             "-o",
-            "bin/main.cpp.o",
-            "src/main.cpp"
+            "bin/EZ-Template/drive/user_input.cpp.o",
+            "src/EZ-Template/drive/user_input.cpp"
         ],
         "directory": "/Users/hamzaimran/Downloads/1575W High-Stakes-2024-2025",
-        "file": "src/main.cpp"
+        "file": "src/EZ-Template/drive/user_input.cpp"
     },
     {
         "arguments": [
@@ -266,50 +266,11 @@
             "-funwind-tables",
             "--std=gnu++20",
             "-o",
-            "bin/EZ-Template/drive/exit_conditions.cpp.o",
-            "src/EZ-Template/drive/exit_conditions.cpp"
+            "bin/EZ-Template/drive/set_pid.cpp.o",
+            "src/EZ-Template/drive/set_pid.cpp"
         ],
         "directory": "/Users/hamzaimran/Downloads/1575W High-Stakes-2024-2025",
-        "file": "src/EZ-Template/drive/exit_conditions.cpp"
-    },
-    {
-        "arguments": [
-            "clang++",
-            "-c",
-            "-target",
-            "armv7ar-none-none-eabi",
-            "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1",
-            "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/arm-none-eabi/thumb/v7-a+simd/softfp",
-            "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/backward",
-            "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/include",
-            "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/include-fixed",
-            "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include",
-            "-iquote./include",
-            "-iquote./include/okapi/squiggles",
-            "-iquote./include/./",
-            "-mcpu=cortex-a9",
-            "-mfpu=neon-fp16",
-            "-mfloat-abi=softfp",
-            "-Os",
-            "-g",
-            "-D_POSIX_THREADS",
-            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
-            "-D_POSIX_TIMERS",
-            "-D_POSIX_MONOTONIC_CLOCK",
-            "-D_PROS_INCLUDE_LIBLVGL_LLEMU_H",
-            "-D_PROS_INCLUDE_LIBLVGL_LLEMU_HPP",
-            "-Wno-psabi",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-fdiagnostics-color",
-            "-funwind-tables",
-            "--std=gnu++20",
-            "-o",
-            "bin/autons.cpp.o",
-            "src/autons.cpp"
-        ],
-        "directory": "/Users/hamzaimran/Downloads/1575W High-Stakes-2024-2025",
-        "file": "src/autons.cpp"
+        "file": "src/EZ-Template/drive/set_pid.cpp"
     },
     {
         "arguments": [
@@ -344,11 +305,11 @@
             "-funwind-tables",
             "--std=gnu++20",
             "-o",
-            "bin/EZ-Template/auton.cpp.o",
-            "src/EZ-Template/auton.cpp"
+            "bin/EZ-Template/util.cpp.o",
+            "src/EZ-Template/util.cpp"
         ],
         "directory": "/Users/hamzaimran/Downloads/1575W High-Stakes-2024-2025",
-        "file": "src/EZ-Template/auton.cpp"
+        "file": "src/EZ-Template/util.cpp"
     },
     {
         "arguments": [
@@ -403,7 +364,7 @@
             "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include",
             "-iquote./include",
             "-iquote./include/okapi/squiggles",
-            "-iquote./include/./",
+            "-iquote./include/EZ-Template/drive/",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -422,11 +383,11 @@
             "-funwind-tables",
             "--std=gnu++20",
             "-o",
-            "bin/driverControl.cpp.o",
-            "src/driverControl.cpp"
+            "bin/EZ-Template/drive/exit_conditions.cpp.o",
+            "src/EZ-Template/drive/exit_conditions.cpp"
         ],
         "directory": "/Users/hamzaimran/Downloads/1575W High-Stakes-2024-2025",
-        "file": "src/driverControl.cpp"
+        "file": "src/EZ-Template/drive/exit_conditions.cpp"
     },
     {
         "arguments": [
@@ -500,11 +461,11 @@
             "-funwind-tables",
             "--std=gnu++20",
             "-o",
-            "bin/EZ-Template/auton_selector.cpp.o",
-            "src/EZ-Template/auton_selector.cpp"
+            "bin/EZ-Template/auton.cpp.o",
+            "src/EZ-Template/auton.cpp"
         ],
         "directory": "/Users/hamzaimran/Downloads/1575W High-Stakes-2024-2025",
-        "file": "src/EZ-Template/auton_selector.cpp"
+        "file": "src/EZ-Template/auton.cpp"
     },
     {
         "arguments": [
@@ -539,11 +500,11 @@
             "-funwind-tables",
             "--std=gnu++20",
             "-o",
-            "bin/EZ-Template/util.cpp.o",
-            "src/EZ-Template/util.cpp"
+            "bin/EZ-Template/auton_selector.cpp.o",
+            "src/EZ-Template/auton_selector.cpp"
         ],
         "directory": "/Users/hamzaimran/Downloads/1575W High-Stakes-2024-2025",
-        "file": "src/EZ-Template/util.cpp"
+        "file": "src/EZ-Template/auton_selector.cpp"
     },
     {
         "arguments": [
@@ -559,7 +520,7 @@
             "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include",
             "-iquote./include",
             "-iquote./include/okapi/squiggles",
-            "-iquote./include/EZ-Template/drive/",
+            "-iquote./include/./",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -578,11 +539,11 @@
             "-funwind-tables",
             "--std=gnu++20",
             "-o",
-            "bin/EZ-Template/drive/user_input.cpp.o",
-            "src/EZ-Template/drive/user_input.cpp"
+            "bin/driverControl.cpp.o",
+            "src/driverControl.cpp"
         ],
         "directory": "/Users/hamzaimran/Downloads/1575W High-Stakes-2024-2025",
-        "file": "src/EZ-Template/drive/user_input.cpp"
+        "file": "src/driverControl.cpp"
     },
     {
         "arguments": [
@@ -598,7 +559,7 @@
             "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include",
             "-iquote./include",
             "-iquote./include/okapi/squiggles",
-            "-iquote./include/EZ-Template/drive/",
+            "-iquote./include/./",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -617,10 +578,49 @@
             "-funwind-tables",
             "--std=gnu++20",
             "-o",
-            "bin/EZ-Template/drive/set_pid.cpp.o",
-            "src/EZ-Template/drive/set_pid.cpp"
+            "bin/main.cpp.o",
+            "src/main.cpp"
         ],
         "directory": "/Users/hamzaimran/Downloads/1575W High-Stakes-2024-2025",
-        "file": "src/EZ-Template/drive/set_pid.cpp"
+        "file": "src/main.cpp"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1",
+            "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/arm-none-eabi/thumb/v7-a+simd/softfp",
+            "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/backward",
+            "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/include",
+            "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/include-fixed",
+            "-isystem/Users/hamzaimran/Library/Application Support/Code/User/globalStorage/sigbots.pros/install/pros-toolchain-macos/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include",
+            "-iquote./include",
+            "-iquote./include/okapi/squiggles",
+            "-iquote./include/./",
+            "-mcpu=cortex-a9",
+            "-mfpu=neon-fp16",
+            "-mfloat-abi=softfp",
+            "-Os",
+            "-g",
+            "-D_POSIX_THREADS",
+            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
+            "-D_POSIX_TIMERS",
+            "-D_POSIX_MONOTONIC_CLOCK",
+            "-D_PROS_INCLUDE_LIBLVGL_LLEMU_H",
+            "-D_PROS_INCLUDE_LIBLVGL_LLEMU_HPP",
+            "-Wno-psabi",
+            "-ffunction-sections",
+            "-fdata-sections",
+            "-fdiagnostics-color",
+            "-funwind-tables",
+            "--std=gnu++20",
+            "-o",
+            "bin/autons.cpp.o",
+            "src/autons.cpp"
+        ],
+        "directory": "/Users/hamzaimran/Downloads/1575W High-Stakes-2024-2025",
+        "file": "src/autons.cpp"
     }
 ]
