@@ -44,8 +44,9 @@ void initialize() {
   
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({ 
-    Auton("RedSoloAWPSig, Solo AWP for sigs and states, red side", RedSoloAWPSig),
     Auton("Skills", skills),
+    Auton("RedSoloAWPSig, Solo AWP for sigs and states, red side", RedSoloAWPSig),
+   
     Auton("goalRushRedCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushRedCornerClear),
     Auton("goalRushBlueCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushBlueCornerClear),
     
