@@ -89,23 +89,23 @@ void colorSort(){
     
         // //THIS THORWS OUT RED
        
-            //  if (color_sens.get_hue() < 13 && color_sens.get_hue() > 8){
-            //    // pros::delay(25);
-            //         sortering = true;
-            //         intake.move_velocity(1200);
-            //         pros::delay(700);
-            //         sortering = false;
-            //  }
-        
-        //THIS THROWS OUT BLUE
-       
-               if (color_sens.get_hue() < 230 && color_sens.get_hue() > 210){
-                //pros::delay(25);
+             if (color_sens.get_hue() < 13 && color_sens.get_hue() > 8){
+               // pros::delay(25);
                     sortering = true;
                     intake.move_velocity(1200);
                     pros::delay(700);
                     sortering = false;
-            }
+             }
+        
+        //THIS THROWS OUT BLUE
+       
+            //    if (color_sens.get_hue() < 230 && color_sens.get_hue() > 210){
+            //     //pros::delay(25);
+            //         sortering = true;
+            //         intake.move_velocity(1200);
+            //         pros::delay(700);
+            //         sortering = false;
+            // }
         
                pros::delay(10);
         
