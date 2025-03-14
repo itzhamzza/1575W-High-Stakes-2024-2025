@@ -44,9 +44,11 @@ void initialize() {
   
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({ 
+    Auton("redAlliance4Ring", redAlliance4Ring),
+    Auton("blueAlliance4Ring", blueAlliance4Ring),
     Auton("Skills", skills),
     Auton("RedSoloAWPSig, Solo AWP for sigs and states, red side", RedSoloAWPSig),
-   
+    Auton("BlueSoloAWPSig, Solo AWP for sigs and states, blue side", BlueSoloAWPSig),
     Auton("goalRushRedCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushRedCornerClear),
     Auton("goalRushBlueCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushBlueCornerClear),
     
@@ -59,7 +61,7 @@ void initialize() {
      
       Auton("redPos2, three rings on goal in positive corner for red",redPos2),
       
-      Auton("BlueSoloAWPSig, Solo AWP for sigs and states, blue side", BlueSoloAWPSig),
+
       Auton("blueAlliance3Ring, blue alliance stake alongside 3 rings on goal on ring side", blueAlliance3Ring),
       Auton("redAlliance3Ring, red alliance stake alongside 3 rings on goal on ring side", redAlliance3Ring),
       Auton("blueFiveRing, 5 rings on red side with rings in middle", blueFiveRing),
@@ -190,7 +192,7 @@ void opcontrol() {
     //colorSort();
     intakeExtender();
     //allianceStake();
-    intakeButton();
+    //intakeButton();
     intaking();
     ladybrownMovement();
     clamping();

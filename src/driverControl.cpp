@@ -29,6 +29,25 @@ void intakeButton(){
 //     }
     
 // }
+
+
+void clamping(){
+
+    if(master.get_digital(DIGITAL_Y)){
+        //clamps on
+        clamper.set_value(true);
+        
+
+    }
+    else if(master.get_digital(DIGITAL_RIGHT)){
+        //clamps off
+        
+        clamper.set_value(false);
+        
+        
+    }
+
+}
 bool sortering = false;
 
 int toggle2 = 0;
@@ -89,23 +108,23 @@ void colorSort(){
     
         // //THIS THORWS OUT RED
        
-             if (color_sens.get_hue() < 13 && color_sens.get_hue() > 8){
-               // pros::delay(25);
-                    sortering = true;
-                    intake.move_velocity(1200);
-                    pros::delay(700);
-                    sortering = false;
-             }
-        
-        //THIS THROWS OUT BLUE
-       
-            //    if (color_sens.get_hue() < 230 && color_sens.get_hue() > 210){
-            //     //pros::delay(25);
+            //  if (color_sens.get_hue() < 13 && color_sens.get_hue() > 8){
+            //    // pros::delay(25);
             //         sortering = true;
             //         intake.move_velocity(1200);
             //         pros::delay(700);
             //         sortering = false;
-            // }
+            //  }
+        
+        //THIS THROWS OUT BLUE
+       
+               if (color_sens.get_hue() < 230 && color_sens.get_hue() > 210){
+                //pros::delay(25);
+                    sortering = true;
+                    intake.move_velocity(1200);
+                    pros::delay(700);
+                    sortering = false;
+            }
         
                pros::delay(10);
         
@@ -116,9 +135,12 @@ void colorSort(){
 void autoClamper(){
     while (true){
         if (limitSwitchLeft.get_new_press() || limitSwitchRight.get_new_press()){
-            //pros::delay(500);
-            clamper.set_value(true);
-            pros::delay(1500);
+            pros::delay(500);
+            if (limitSwitchLeft.get_new_press() || limitSwitchRight.get_new_press()){
+                clamper.set_value(true);
+                
+            }
+          
         }
         pros::delay(50);
     }
@@ -183,10 +205,11 @@ void ladybrownMovement(){
         }
         else if(master.get_digital_new_press(DIGITAL_L2)){
             //arm down
+            togglable = true;
             ladyBrown.move_absolute(-10, 200);
             ladyBrown.set_brake_mode(MOTOR_BRAKE_COAST);
             intake.set_brake_mode(MOTOR_BRAKE_COAST);
-            togglable = true;
+            
             stage = 0;
             
             //rotation_sens.reset();
@@ -215,23 +238,6 @@ void intakeExtender(){
     }
 }
 
-void clamping(){
-
-    if(master.get_digital(DIGITAL_Y)){
-        //clamps on
-        clamper.set_value(true);
-        
-
-    }
-    else if(master.get_digital(DIGITAL_RIGHT)){
-        //clamps off
-        
-        clamper.set_value(false);
-        
-        
-    }
-
-}
 int toggle = 0;
 void goalClamper(){
     if(master.get_digital(DIGITAL_LEFT) && toggle ==0){

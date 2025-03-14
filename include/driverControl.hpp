@@ -10,7 +10,7 @@ void intakeExtender();
 void intakeButton();
 void autoClamper();
 void autoFlipping();
-void autoClamperAuton();
+//void autoClamperAuton();
 inline pros::Task colorSortTask(colorSort);
 inline pros::Task autoClampTask(autoClamper);
 //inline pros::Task autoClampTaskAuton(autoClamperAuton);
