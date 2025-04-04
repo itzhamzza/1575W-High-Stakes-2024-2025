@@ -15,11 +15,11 @@ inline pros::Motor ladyBrown(1, pros::v5::MotorGears::green);
 inline pros::MotorGroup intake({7,9}, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
 inline pros::Distance distance_sens(19);
 
-inline pros::Rotation rotation_sens(18);
+inline pros::Rotation rotation_sens(18); // this makes a rotation sensor
 
 inline pros::Optical color_sens(14);
 
-inline pros::adi::DigitalOut clamper('B', 0);
+inline pros::adi::DigitalOut clamper('B', 0); //pneumatics
 
 inline pros::adi::DigitalOut goalClamp('C', 0);
 
@@ -27,7 +27,7 @@ inline pros::adi::DigitalOut armPiston('A', 0);
 
 inline pros::adi::DigitalOut doink('D', 0);
 
-inline pros::adi::DigitalIn limitSwitchLeft('G');
+inline pros::adi::DigitalIn limitSwitchLeft('G'); 
 inline pros::adi::DigitalIn limitSwitchRight('F');
 
 inline pros::adi::DigitalIn autoFlipper('H');

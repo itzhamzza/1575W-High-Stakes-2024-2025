@@ -44,13 +44,14 @@ void initialize() {
   
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({ 
+    Auton("goalRushBlueCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushBlueCornerClear),
     Auton("redAlliance4Ring", redAlliance4Ring),
     Auton("blueAlliance4Ring", blueAlliance4Ring),
     Auton("Skills", skills),
     Auton("RedSoloAWPSig, Solo AWP for sigs and states, red side", RedSoloAWPSig),
     Auton("BlueSoloAWPSig, Solo AWP for sigs and states, blue side", BlueSoloAWPSig),
     Auton("goalRushRedCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushRedCornerClear),
-    Auton("goalRushBlueCornerClear, rushes for goal in the middle on blue side and clear corner for alliance", goalRushBlueCornerClear),
+
     
     Auton("goalRushBlueWallStake, rushes for goal in the middle on blue side and gets wall stake, elims", goalRushBlueWallStake),
     Auton("goalRushRed, rushes for goal in the middle on red side", goalRushRed),
@@ -152,7 +153,7 @@ void opcontrol() {
   pros::motor_brake_mode_e_t driver_preference_brake = MOTOR_BRAKE_COAST;
 
   chassis.drive_brake_set(driver_preference_brake);
-  color_sens.set_led_pwm(100);
+  color_sens.set_led_pwm(1000);
   
   
   
@@ -192,7 +193,7 @@ void opcontrol() {
     //colorSort();
     intakeExtender();
     //allianceStake();
-    //intakeButton();
+    intakeButton();
     intaking();
     ladybrownMovement();
     clamping();

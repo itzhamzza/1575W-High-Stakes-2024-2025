@@ -37,43 +37,43 @@ void redAlliance4Ring(){
   ladyBrown.move_absolute(-2000, 200);
   pros::delay(700);
   //ring on alliance stake
-  chassis.pid_turn_relative_set(20, DRIVE_SPEED, true);
+  chassis.pid_turn_relative_set(25, DRIVE_SPEED, true);
   chassis.pid_wait_quick();
   ladyBrown.move_absolute(-10, 200);
-  chassis.pid_drive_set(-33_in, 80, true);
+  chassis.pid_drive_set(-35_in, 80, true);
   chassis.pid_wait_quick();
   pros::delay(200);
-  //clamper.set_value(true);
+  clamper.set_value(true);
   armPiston.set_value(false);
   //1st goal clamped
   autoClampTask.suspend();
-  chassis.pid_turn_relative_set(150, DRIVE_SPEED, true);
+  chassis.pid_turn_relative_set(158, DRIVE_SPEED, true);
   chassis.pid_wait_quick_chain();
   intake.move_velocity(-1200);
-  chassis.pid_drive_set(23_in, DRIVE_SPEED, true); //20
+  chassis.pid_drive_set(16_in, 100000, true); //20
   chassis.pid_wait_quick_chain();
   //1st ring on goal
-  chassis.pid_turn_relative_set(-42, DRIVE_SPEED, true); //25
+  chassis.pid_turn_relative_set(-44, DRIVE_SPEED, true); //25
   chassis.pid_wait_quick_chain();
-  chassis.pid_drive_set(8_in, DRIVE_SPEED, true); //8
+  chassis.pid_drive_set(12_in, 1000000, false); //8
   chassis.pid_wait_quick_chain();
   //2nd ring on goal
   intake.move_velocity(-1200);
   chassis.pid_turn_relative_set(20, DRIVE_SPEED, true);
   chassis.pid_wait_quick_chain();
-  chassis.pid_drive_set(-10_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(-12_in, DRIVE_SPEED, true);
   chassis.pid_wait_quick_chain();
   chassis.pid_turn_relative_set(-70, DRIVE_SPEED, true);
   chassis.pid_wait_quick();
-  chassis.pid_drive_set(20_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(18_in, DRIVE_SPEED, true);
   chassis.pid_wait_quick();
    pros::delay(500);
   //3rd ring on goal
-  chassis.pid_turn_relative_set(-110, DRIVE_SPEED, true);
+  chassis.pid_turn_relative_set(-117, DRIVE_SPEED, true);
   chassis.pid_wait_quick();
   armPiston.set_value(true);
   intake.move_velocity(0);
-  chassis.pid_drive_set(43_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(42.5_in, DRIVE_SPEED, true);
   chassis.pid_wait_quick();
   intake.move_velocity(-1200);
   armPiston.set_value(false);
@@ -98,13 +98,13 @@ void blueAlliance4Ring(){
   armPiston.set_value(false);
   //1st goal clamped
   autoClampTask.suspend();
-  chassis.pid_turn_relative_set(-150, DRIVE_SPEED, true);
+  chassis.pid_turn_relative_set(-158, DRIVE_SPEED, true);
   chassis.pid_wait_quick_chain();
   intake.move_velocity(-1200);
-  chassis.pid_drive_set(23_in, DRIVE_SPEED, true); //20
+  chassis.pid_drive_set(19_in, DRIVE_SPEED, true); //20
   chassis.pid_wait_quick_chain();
   //1st ring on goal
-  chassis.pid_turn_relative_set(42, DRIVE_SPEED, true); //25
+  chassis.pid_turn_relative_set(40, DRIVE_SPEED, true); //25
   chassis.pid_wait_quick_chain();
   chassis.pid_drive_set(8_in, DRIVE_SPEED, true); //8
   chassis.pid_wait_quick_chain();
@@ -120,11 +120,11 @@ void blueAlliance4Ring(){
   chassis.pid_wait_quick();
    pros::delay(500);
   //3rd ring on goal
-  chassis.pid_turn_relative_set(100, DRIVE_SPEED, true);
+  chassis.pid_turn_relative_set(112, DRIVE_SPEED, true);
   chassis.pid_wait_quick();
   armPiston.set_value(true);
   intake.move_velocity(0);
-  chassis.pid_drive_set(44_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(44.7_in, DRIVE_SPEED, true);
   chassis.pid_wait_quick();
   intake.move_velocity(-1200);
   armPiston.set_value(false);
@@ -190,24 +190,32 @@ void goalRushRedCornerClear(){
   chassis.pid_wait();
   pros::delay(800);
   //2nd ring on 2nd goal
+  chassis.drive_imu_reset();
+  chassis.pid_turn_set(190_deg, TURN_SPEED);
+  chassis.pid_wait();
+  chassis.pid_drive_set(35_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  //BELOW IS CORNER CLEAR
   
- chassis.pid_drive_set(-15_in, DRIVE_SPEED);
-  chassis.pid_wait_quick_chain();
-  chassis.drive_imu_reset();
-  chassis.pid_turn_set(-50_deg, TURN_SPEED);
-  chassis.pid_wait();
-  doink.set_value(true);
-  chassis.pid_drive_set(40_in, DRIVE_SPEED);
-  chassis.pid_wait_quick_chain();
-  chassis.drive_imu_reset();
-  chassis.pid_turn_set(60_deg, TURN_SPEED);
-  chassis.pid_wait();
-  doink.set_value(false);
-  chassis.drive_imu_reset();
-  chassis.pid_turn_set(-75_deg, TURN_SPEED);
-  chassis.pid_wait_quick_chain();
-  chassis.pid_drive_set(-20_in, DRIVE_SPEED);
-  chassis.pid_wait();
+//  chassis.pid_drive_set(-15_in, DRIVE_SPEED);
+//   chassis.pid_wait_quick_chain();
+//   chassis.drive_imu_reset();
+//   chassis.pid_turn_set(-50_deg, TURN_SPEED);
+//   chassis.pid_wait();
+//   doink.set_value(true);
+//   intake.move_velocity(1200);
+//   chassis.pid_drive_set(40_in, DRIVE_SPEED);
+//   chassis.pid_wait_quick_chain();
+//   chassis.drive_imu_reset();
+//   chassis.pid_turn_set(60_deg, TURN_SPEED,false);
+//   chassis.pid_wait();
+//   doink.set_value(false);
+//   chassis.drive_imu_reset();
+//   chassis.pid_turn_set(-10_deg, TURN_SPEED);
+//   chassis.pid_wait_quick_chain();
+//   chassis.pid_drive_set(-30_in, DRIVE_SPEED);
+//   chassis.pid_wait();
   autoClampTask.resume();
 }
 void goalRushBlueCornerClear(){
@@ -216,15 +224,18 @@ void goalRushBlueCornerClear(){
   doink.set_value(true);
   armPiston.set_value(false);
   intake.move_velocity(-1200);
-  chassis.pid_drive_set(34.2_in, DRIVE_SPEED); 
-  chassis.pid_wait_until(32_in);
+  chassis.pid_drive_set(38.2_in, 120); //34.2
+  chassis.pid_wait_until(33_in);
   
+  
+  //pros::delay(800); REENTER FOR QUICK GR
   intake.move_velocity(0);
   chassis.pid_wait_quick_chain();
+  pros::delay(500);
   goalClamp.set_value(true);
-  pros::delay(100);
+  pros::delay(50);
   //pros::delay(200);
-  chassis.pid_drive_set(-11_in, DRIVE_SPEED);
+  chassis.pid_drive_set(-16_in, DRIVE_SPEED); //11
   chassis.pid_wait();
   //goal in our possesion && ring in intake
   goalClamp.set_value(false);
@@ -234,7 +245,7 @@ void goalRushBlueCornerClear(){
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(160_deg, TURN_SPEED);
   chassis.pid_wait();
-  chassis.pid_drive_set(-10_in, 70);
+  chassis.pid_drive_set(-13_in, 70);
   chassis.pid_wait();
   clamper.set_value(true);
   //goal clamped
@@ -243,46 +254,51 @@ void goalRushBlueCornerClear(){
   intake.move_velocity(-1200);
   chassis.pid_wait();
   //Ring on 1st goal
-  chassis.pid_drive_set(-21_in, DRIVE_SPEED);
+  chassis.pid_drive_set(-24_in, DRIVE_SPEED);
   chassis.pid_wait();
   clamper.set_value(false);
   //goal dropped
-  chassis.pid_drive_set(3_in, DRIVE_SPEED);
+  chassis.pid_drive_set(5_in, DRIVE_SPEED);
   chassis.pid_wait();
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(-75_deg, TURN_SPEED);
   intake.move_velocity(0);
   chassis.pid_wait();
-  chassis.pid_drive_set(-14_in, 70);
+  chassis.pid_drive_set(-20_in, 70);
   chassis.pid_wait();
   pros::delay(100);
   clamper.set_value(true);
   //2nd goal clamped
+  intake.move_velocity(-1200);
   chassis.pid_drive_set(35_in, DRIVE_SPEED);
   chassis.pid_wait();
   pros::delay(800);
   //2nd ring on 2nd goal
-  
- chassis.pid_drive_set(-15_in, DRIVE_SPEED);
- chassis.pid_wait_quick_chain();
- intake.move_velocity(-1200);
   chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(-27_deg, TURN_SPEED);
-  chassis.pid_wait_quick_chain();
-  doink.set_value(true);
-  chassis.pid_drive_set(19_in, 120);
-  chassis.pid_wait_quick_chain();
-  //in front of 4 rings in corner
-  chassis.pid_drive_set(9_in, 70);
-  chassis.pid_wait_quick_chain();
-  chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(150_deg, TURN_SPEED);
+  chassis.pid_turn_set(120_deg, TURN_SPEED);
+  chassis.pid_drive_set(22_in, DRIVE_SPEED);
   chassis.pid_wait();
-  doink.set_value(false);
-  //corner cleared
-  chassis.pid_drive_set(25_in, DRIVE_SPEED);
-  chassis.pid_wait();
-  autoClampTask.resume();
+  //BELOW IS CORNER CLEAR
+//  chassis.pid_drive_set(-15_in, DRIVE_SPEED);
+//  chassis.pid_wait_quick_chain();
+//  intake.move_velocity(-1200);
+//   chassis.drive_imu_reset(); 
+//   chassis.pid_turn_set(-27_deg, TURN_SPEED);
+//   chassis.pid_wait_quick_chain();
+//   doink.set_value(true);
+//   chassis.pid_drive_set(19_in, 120);
+//   chassis.pid_wait_quick_chain();
+//   //in front of 4 rings in corner
+//   chassis.pid_drive_set(9_in, 70);
+//   chassis.pid_wait_quick_chain();
+//   chassis.drive_imu_reset(); 
+//   chassis.pid_turn_set(150_deg, TURN_SPEED);
+//   chassis.pid_wait();
+//   doink.set_value(false);
+//   //corner cleared
+//   chassis.pid_drive_set(25_in, DRIVE_SPEED);
+//   chassis.pid_wait();
+//   autoClampTask.resume();
 
 
   
@@ -447,11 +463,11 @@ void goalRushBlue(){
   doink.set_value(true);
   armPiston.set_value(false);
   intake.move_velocity(-1200);
-  chassis.pid_drive_set(34.2_in, DRIVE_SPEED); 
+  chassis.pid_drive_set(34.8_in, DRIVE_SPEED); //34.2
   //chassis.pid_wait_until(32_in);
-  pros::delay(1000);
+  pros::delay(900);
   intake.move_velocity(0);
-  chassis.pid_wait_quick_chain();
+
   goalClamp.set_value(true);
   pros::delay(200);
   chassis.pid_drive_set(-11_in, DRIVE_SPEED);
@@ -464,7 +480,7 @@ void goalRushBlue(){
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(160_deg, TURN_SPEED);
   chassis.pid_wait();
-  chassis.pid_drive_set(-10_in, 70);
+  chassis.pid_drive_set(-12_in, 70);
   chassis.pid_wait();
   clamper.set_value(true);
   //goal clamped
@@ -473,22 +489,22 @@ void goalRushBlue(){
   intake.move_velocity(-1200);
   chassis.pid_wait();
   //Ring on 1st goal
-  chassis.pid_drive_set(-21_in, DRIVE_SPEED);
+  chassis.pid_drive_set(-22_in, DRIVE_SPEED);
   chassis.pid_wait();
   clamper.set_value(false);
   //goal dropped
-  chassis.pid_drive_set(3_in, DRIVE_SPEED);
+  chassis.pid_drive_set(5_in, DRIVE_SPEED);
   chassis.pid_wait();
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(-75_deg, TURN_SPEED);
   intake.move_velocity(0);
   chassis.pid_wait();
-  chassis.pid_drive_set(-14_in, 70);
+  chassis.pid_drive_set(-16_in, 70);
   chassis.pid_wait();
   pros::delay(100);
   clamper.set_value(true);
   //2nd goal clamped
-  chassis.pid_drive_set(35_in, DRIVE_SPEED);
+  chassis.pid_drive_set(37_in, DRIVE_SPEED);
   intake.move_velocity(-1200);
   chassis.pid_wait();
   pros::delay(800);
@@ -499,7 +515,7 @@ void goalRushBlue(){
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(-190_deg, TURN_SPEED);
   chassis.pid_wait();
-  chassis.pid_drive_set(37_in, DRIVE_SPEED);
+  chassis.pid_drive_set(38_in, DRIVE_SPEED);
   chassis.pid_wait();
   
   //touches ladder
@@ -770,7 +786,7 @@ void RedSoloAWPSig(){
   chassis.pid_turn_relative_set(20, DRIVE_SPEED, true);
   chassis.pid_wait_quick();
   ladyBrown.move_absolute(-10, 200);
-  chassis.pid_drive_set(-40_in, 80, true);
+  chassis.pid_drive_set(-33_in, 75, true);
   chassis.pid_wait_quick();
   pros::delay(200);
   //clamper.set_value(true);
@@ -780,20 +796,20 @@ void RedSoloAWPSig(){
   chassis.pid_turn_relative_set(150, DRIVE_SPEED, true);
   chassis.pid_wait_quick_chain();
   intake.move_velocity(-1200);
-  chassis.pid_drive_set(16_in, DRIVE_SPEED, true); //20
+  chassis.pid_drive_set(23_in, DRIVE_SPEED, true); //20
   chassis.pid_wait_quick_chain();
   //1st ring on goal
-  chassis.pid_turn_relative_set(-45, DRIVE_SPEED, true); //25
+  chassis.pid_turn_relative_set(-44, DRIVE_SPEED, true); //25
   chassis.pid_wait_quick_chain();
-  chassis.pid_drive_set(6_in, DRIVE_SPEED, true); //8
+  chassis.pid_drive_set(8_in, DRIVE_SPEED, true); //8
   chassis.pid_wait_quick_chain();
   //2nd ring on goal
   intake.move_velocity(-1200);
   chassis.pid_turn_relative_set(20, DRIVE_SPEED, true);
   chassis.pid_wait_quick_chain();
-  chassis.pid_drive_set(-5_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(-10_in, DRIVE_SPEED, true);
   chassis.pid_wait_quick_chain();
-  chassis.pid_turn_relative_set(-65, DRIVE_SPEED, true);
+  chassis.pid_turn_relative_set(-70, DRIVE_SPEED, true);
   chassis.pid_wait_quick();
   chassis.pid_drive_set(20_in, DRIVE_SPEED, true);
   chassis.pid_wait_quick();
@@ -843,13 +859,13 @@ void BlueSoloAWPSig(){
   armPiston.set_value(false);
   //1st goal clamped
   autoClampTask.suspend();
-  chassis.pid_turn_relative_set(-150, DRIVE_SPEED, true);
+  chassis.pid_turn_relative_set(-158, DRIVE_SPEED, true);
   chassis.pid_wait_quick_chain();
   intake.move_velocity(-1200);
-  chassis.pid_drive_set(23_in, DRIVE_SPEED, true); //20
+  chassis.pid_drive_set(19_in, DRIVE_SPEED, true); //20
   chassis.pid_wait_quick_chain();
   //1st ring on goal
-  chassis.pid_turn_relative_set(42, DRIVE_SPEED, true); //25
+  chassis.pid_turn_relative_set(40, DRIVE_SPEED, true); //25
   chassis.pid_wait_quick_chain();
   chassis.pid_drive_set(8_in, DRIVE_SPEED, true); //8
   chassis.pid_wait_quick_chain();
@@ -865,7 +881,7 @@ void BlueSoloAWPSig(){
   chassis.pid_wait_quick();
    pros::delay(500);
   //3rd ring on goal
-  chassis.pid_turn_relative_set(-77, DRIVE_SPEED, true); //30
+  chassis.pid_turn_relative_set(-85, DRIVE_SPEED, true); //30
   chassis.pid_wait_quick_chain();
   chassis.pid_drive_set(-80_in, DRIVE_SPEED, true);
   intake.move_velocity(1200);
@@ -877,7 +893,7 @@ void BlueSoloAWPSig(){
   chassis.pid_wait_quick_chain();
   autoClampTask.resume();
   intake.move_velocity(0);
-  chassis.pid_drive_set(-25_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(-26_in, DRIVE_SPEED, true);
   chassis.pid_wait_quick_chain();
   //2nd goal clamped
   chassis.pid_turn_relative_set(115, DRIVE_SPEED, true);
@@ -1162,14 +1178,14 @@ void skills(){
   chassis.pid_turn_relative_set(87_deg, TURN_SPEED);
   chassis.pid_wait();
   intake.move_velocity(-1200);
-  chassis.pid_drive_set(13.5_in, 80); //21
+  chassis.pid_drive_set(14.5_in, 80); //13.5
   chassis.pid_wait();
   //2nd ring in 2nd goal
   pros::delay(100);
  ladyBrown.move_absolute(-2000, 200);
  pros::delay(50);
   //ring on wall stake
- chassis.pid_drive_set(-17_in, 65);
+ chassis.pid_drive_set(-18_in, 65);
   chassis.pid_wait();
   ladyBrown.move_absolute(-10, 200);
   
@@ -1265,8 +1281,8 @@ void skills(){
   
   chassis.pid_turn_relative_set(15_deg, TURN_SPEED);
   pros::delay(500);
-  chassis.pid_drive_set(50_in, DRIVE_SPEED);
-  pros::delay(1500);
+  chassis.pid_drive_set(100_in, DRIVE_SPEED);
+  chassis.pid_wait();
   autoClampTask.resume();
 
   /*

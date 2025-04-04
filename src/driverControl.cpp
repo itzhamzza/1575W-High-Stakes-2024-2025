@@ -108,23 +108,24 @@ void colorSort(){
     
         // //THIS THORWS OUT RED
        
-            //  if (color_sens.get_hue() < 13 && color_sens.get_hue() > 8){
-            //    // pros::delay(25);
-            //         sortering = true;
-            //         intake.move_velocity(1200);
-            //         pros::delay(700);
-            //         sortering = false;
-            //  }
-        
-        //THIS THROWS OUT BLUE
-       
-               if (color_sens.get_hue() < 230 && color_sens.get_hue() > 210){
-                //pros::delay(25);
+             if (color_sens.get_hue() < 13 && color_sens.get_hue() > 8){
+               pros::delay(30);
                     sortering = true;
                     intake.move_velocity(1200);
                     pros::delay(700);
                     sortering = false;
-            }
+             }
+        
+        //THIS THROWS OUT BLUE
+       
+        //        if (color_sens.get_hue() < 230 && color_sens.get_hue() > 210){
+        //         pros::delay(30);
+        //             sortering = true;
+        //             intake.move_velocity(1200);
+        //             pros::delay(700);
+        //             sortering = false;
+                   
+        //    }
         
                pros::delay(10);
         
@@ -134,12 +135,12 @@ void colorSort(){
 
 void autoClamper(){
     while (true){
+        pros::delay(100);
         if (limitSwitchLeft.get_new_press() || limitSwitchRight.get_new_press()){
-            pros::delay(500);
-            if (limitSwitchLeft.get_new_press() || limitSwitchRight.get_new_press()){
+            
                 clamper.set_value(true);
                 
-            }
+            
           
         }
         pros::delay(50);
